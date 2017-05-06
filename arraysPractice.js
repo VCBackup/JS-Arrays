@@ -87,10 +87,11 @@ function divider(numbersArray){
       oddsArray = oddsArray.concat(numbersArray.splice(n, 1));
   }
 }
-  var answerArray = new Array(2);
-  answerArray[0] = numbersArray;
-  answerArray[1] = oddsArray;
-  return answerArray;
+  //var answerArray = new Array(2);
+  //answerArray[0] = numbersArray;
+  //answerArray[1] = oddsArray;
+  //return answerArray;
+  return [numbersArray, oddsArray];
 }
 
 //Next Problem
@@ -202,7 +203,16 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 function addTen(numbers){
-
+//convert strings to numbers
+for (var i = 0; i < numbers.length; i++){
+  numbers[i] = parseInt(numbers[i]);
+}
+//add 10 to each value
+for (var i = 0; i < numbers.length; i++){
+  numbers[i] = numbers[i] + 10;
+}
+//return modified array
+return numbers;
 }
 
 
@@ -225,7 +235,10 @@ for(var i = 0; i < num2; i++){
 
   //Code Here
 function longer(arr1, arr2){
-
+  if (arr1.length > arr2.length){
+    return arr1;
+  }
+  return arr2;
 }
 
 /*As a continuation of the previous problem, write another function called 'both'.
@@ -236,7 +249,15 @@ function longer(arr1, arr2){
 
   //Code Here
 function both(arr1, arr2){
-
+  var answerArray = [];    
+        for (var i = 0; i < arr1.length; i++){
+          for (var j = 0; j < arr2.length; j++)
+            if (arr1[i] === arr2[j]){
+              answerArray.push(arr1[i]);
+        }
+      }
+  
+  return answerArray;
 }
 
 
@@ -278,11 +299,18 @@ sure that it's equal to 4. */
 
   //Code Here
 
+devMountainEmployees = [tyler, cahlan, ryan, colt];
+console.log(devMountainEmployees.length);
+
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
+for (var i = 0; i < devMountainEmployees.length; i++){
+  if (devMountainEmployees[i] === cahlan){
+    devMountainEmployees.splice([i], 1);
+  }
+}
 
 
 
