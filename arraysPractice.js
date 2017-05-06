@@ -146,16 +146,33 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   and the second is an item to add to your grocery list. In addItem add the item you passed in to
   myGroceryList then return the new, updated grocery list.
 
-  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
+  In both the removeItem function and the addItem function, you will also need to check for valid arguments. Specrunner will try to call your functions without passing in valid arguments. When this happens, you will need to respond by returning an empty array.
 */
 
   //Code Here
 function removeItem(myGroceryList, item){
-
+  var removed = 0;
+  for (var i = 0; i < myGroceryList.length; i++){
+    if (myGroceryList[i] === item){
+      removed = myGroceryList.splice(i, 1);
+    }
+  }
+  return myGroceryList;
 }
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
-
+function addItem(myGroceryList, item){
+  var counter = 1;
+  for (var i = 0; i < myGroceryList.length; i++){
+    if (myGroceryList[i] == item){
+     counter--;
+    }
+  }
+  if (counter == 1){
+    myGroceryList.push(item);
+  }
+  return myGroceryList;
+}
 
 
 //Next Problem
@@ -166,7 +183,13 @@ function removeItem(myGroceryList, item){
 
   //Code Here
 function maker(){
-
+  var newArray = [];
+  var i = 1;
+  while (newArray.length <215){
+    newArray.push(i);
+    i++;
+  }
+  return newArray;
 }
 
 
